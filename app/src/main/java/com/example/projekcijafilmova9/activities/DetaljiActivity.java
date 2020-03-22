@@ -163,8 +163,8 @@ public class DetaljiActivity extends AppCompatActivity {
         toolbar = findViewById( R.id.toolbar );
         setSupportActionBar( toolbar );
         toolbar.setTitleTextColor( Color.WHITE );
-        toolbar.setSubtitle( "Detail filma" );
-      //  toolbar.setLogo( R.drawable.heart );
+        toolbar.setSubtitle( "Detalji filma" );
+        //  toolbar.setLogo( R.drawable.heart );
 
         final ActionBar actionBar = getSupportActionBar();
 
@@ -197,7 +197,7 @@ public class DetaljiActivity extends AppCompatActivity {
                 addFilm();
                 break;
             case android.R.id.home:
-                startActivity( new Intent( this, MainActivity.class ) );
+                startActivity( new Intent( this, RepertoarActivity.class ) );
                 break;
         }
         return super.onOptionsItemSelected( item );
@@ -206,7 +206,7 @@ public class DetaljiActivity extends AppCompatActivity {
     public void addFilm() {
 
         if (cenaEdit.getText().toString().isEmpty()) {
-            Toast.makeText( DetaljiActivity.this, "Morate upisati cenu karte", Toast.LENGTH_LONG ).show();
+            Toast.makeText( this, "Morate upisati cenu karte", Toast.LENGTH_LONG ).show();
 
         } else {
 
@@ -267,13 +267,12 @@ public class DetaljiActivity extends AppCompatActivity {
     public void showNotification(String poruka) {
 
         NotificationManager notificationManager = (NotificationManager) getSystemService( Context.NOTIFICATION_SERVICE );
-        NotificationCompat.Builder builder = new NotificationCompat.Builder( DetaljiActivity.this, NOTIF_CHANNEL_ID );
+        NotificationCompat.Builder builder = new NotificationCompat.Builder( this, NOTIF_CHANNEL_ID );
         builder.setSmallIcon( R.drawable.heart );
         builder.setContentTitle( "Notifikacija" );
         builder.setContentText( poruka );
 
         Bitmap bitmap = BitmapFactory.decodeResource( getResources(), R.mipmap.ic_launcher );
-
 
         builder.setLargeIcon( bitmap );
         notificationManager.notify( 1, builder.build() );

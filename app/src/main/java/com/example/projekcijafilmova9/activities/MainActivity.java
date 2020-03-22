@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements SearchAdapter.OnI
                 getMovieByName( movieName.getText().toString() );
             }
         } );
-
     }
 
     @Override
@@ -72,25 +71,23 @@ public class MainActivity extends AppCompatActivity implements SearchAdapter.OnI
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.omiljeni_lista:
-                // startActivity( new Intent( this, RepertoarActivity.class ) );
+                startActivity( new Intent( this, RepertoarActivity.class ) );
                 break;
 
             case R.id.settings:
-                  startActivity( new Intent( this, SettingsActivity.class ) );
+                startActivity( new Intent( this, SettingsActivity.class ) );
                 break;
         }
 
         return super.onOptionsItemSelected( item );
     }
 
-
     public void setupToolbar() {
-        toolbar = findViewById( R.id.toolbar_main );
+        toolbar = findViewById( R.id.toolbar );
         setSupportActionBar( toolbar );
         toolbar.setSubtitle( "Lista filmova" );
         toolbar.setTitleTextColor( Color.WHITE );
         // toolbar.setLogo(R.mipmap.ic_launcher);
-
 
         final ActionBar actionBar = getSupportActionBar();
 
@@ -151,15 +148,13 @@ public class MainActivity extends AppCompatActivity implements SearchAdapter.OnI
         } );
     }
 
-
     @Override
     public void onItemClick(int position) {
         Search movie = adapter.get( position );
 
-        Intent i = new Intent( MainActivity.this, DetaljiActivity.class );
+        Intent i = new Intent( this, DetaljiActivity.class );
         i.putExtra( KEY, movie.getImdbID() );
         startActivity( i );
-
     }
 
     @Override
