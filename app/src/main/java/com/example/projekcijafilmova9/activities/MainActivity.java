@@ -156,9 +156,9 @@ public class MainActivity extends AppCompatActivity implements SearchAdapter.OnI
     public void onItemClick(int position) {
         Search movie = adapter.get( position );
 
-//        Intent i = new Intent( MainActivity.this, DetaljiActivity.class );
-//        i.putExtra( KEY, movie.getImdbID() );
-//        startActivity( i );
+        Intent i = new Intent( MainActivity.this, DetaljiActivity.class );
+        i.putExtra( KEY, movie.getImdbID() );
+        startActivity( i );
 
     }
 
