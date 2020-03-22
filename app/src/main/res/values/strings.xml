@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Projekcija Filmova 9</string>
+    <string name="adrijana_savic">Adrijana Savic</string>
+    <string name="movie_name">Unesite ime filma</string>
+    <string name="search">Pretrazi</string>
+    <string name="settings">Podesavanja</string>
+
+    <string name="splash_key">splash_settings</string>
+    <string name="splashtime_key">splashtime_settings</string>
+    <string name="notif_key">notif_setings</string>
+    <string name="toast_key">toast_setings</string>
 </resources>
